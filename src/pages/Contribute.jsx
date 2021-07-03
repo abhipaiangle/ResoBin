@@ -7,6 +7,10 @@ const Container = styled.div`
 `
 
 const Contribute = () => {
+  const [formvalue, setFormvalue]= useState([])
+  const handleFormdetail = (value) =>{
+    setFormvalue(value);
+  }
   return (
     <Container>
       <Helmet>
@@ -14,10 +18,8 @@ const Contribute = () => {
         <meta name="description" content="Upload and share your own notes" />
       </Helmet>
 
-      <FileDetails />
-      <FileList />
+      <FileDetails handleFormdetail={(value)=>{handleFormdetail(value);}}  />
+      <FileList  formvalues={formvalue}/>
     </Container>
   )
 }
-
-export default Contribute

@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import Divider from 'components/shared/Divider'
+import FileDetailsForm from 'components/contribute/FileDetailsForm'
+import { propTypes } from '../../../../node_modules/react-bootstrap/esm/Image'
 
 const Container = styled.div`
-  background: ${({ theme }) => theme.darksecondary};
-  margin: 2rem 21rem 2rem 2rem;
-  height: 5000px;
+  background: #e6ecff;
+  margin: 6rem 21rem 2rem 2rem;
+  height: 500px;
   border-radius: 8px;
   box-shadow: 0px 0px 0.5rem rgba(0, 0, 0, 0.5);
 `
@@ -17,14 +19,20 @@ const Title = styled.h4`
   line-height: 30px;
   letter-spacing: 1.5px;
   padding: 2.5rem 2.5rem 1rem;
-  color: ${({ theme }) => theme.textColor};
+  color: black;
 `
 
-const FileDetails = () => {
+const FileDetails = (props) => {
+  
+  const handleParentFun = (value) =>{
+    const formdetails = value;
+     props.handleFormdetail(formdetails);
+  }
   return (
-    <Container>
+    <Container >
       <Title> Upload details </Title>
       <Divider />
+      <FileDetailsForm handleParentFun={(value)=>{handleParentFun(value);}} />
     </Container>
   )
 }
